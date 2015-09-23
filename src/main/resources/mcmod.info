@@ -1,0 +1,21 @@
+[
+{
+  "modid": "techreborn-addons",
+  "name": "TechReborn-Addons",
+  "description": "Even more TechReborn!",
+  "version": "$version",
+  "mcversion": "$mcversion",
+  "url": "https://github.com/TechReborn/TechReborn",
+  "updateUrl": "",
+  "authorList": [
+    "modmuss50", "Gigabit101"
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

@@ -1,0 +1,138 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+apply plugin: 'forge'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+
+repositories {
+    maven {
+        name = "Modmuss50"
+        url = "http://maven.modmuss50.me/"
+    }
+}
+
+def ENV = System.getenv()
+if (ENV.BUILD_NUMBER) {
+    version = "0.0.0." + "${System.getenv().BUILD_NUMBER}"
+} else {
+    version = "0.0.0.BUILD"
+}
+
+minecraft {
+    version = "1.7.10-10.13.4.1448-1.7.10"
+    replace "@MODVERSION@", project.version
+}
+
+group = 'TechReborn-Addon'
+
+dependencies {
+    compile 'TechReborn:TechReborn:0.4.3.860:api'
+}
+
+
+processResources
+        {
+            // replace stuff in mcmod.info, nothing else
+            from(sourceSets.main.resources.srcDirs) {
+                include 'mcmod.info'
+
+                // replace version and mcversion
+                // ${version}   and    ${mcversion}    are the exact strings being replaced
+                expand 'version':project.version, 'mcversion':project.minecraft.version
+            }
+
+            // copy everything else, that's not the mcmod.info
+            from(sourceSets.main.resources.srcDirs) {
+                exclude 'mcmod.info'
+            }
+        }
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'src'
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    exclude "**/*.psd"
+    classifier = 'dev'
+}
+
+jar {
+    exclude "**/*.psd"
+    classifier = 'universal'
+}
+
+
+artifacts {
+    archives sourceJar
+    archives deobfJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:///var/www/maven/")
+            pom {
+                groupId = "TechReborn"
+                version = project.version
+                artifactId = project.archivesBaseName
+                project {
+                    name project.archivesBaseName
+                    packaging 'jar'
+                    description 'TechReborn-Addon'
+                    url 'https://github.com/TechReborn/TechReborn-Addon'
+                    scm {
+                        url 'https://github.com/TechReborn/TechReborn-Addon'
+                        connection 'scm:git:git@github.com:TechReborn/TechReborn-Addon.git'
+                        developerConnection 'scm:git:git@github.com:TechReborn/TechReborn-Addon.git'
+                    }
+                    issueManagement {
+                        system 'github'
+                        url 'https://github.com/TechReborn/TechReborn-Addon/issues'
+                    }
+                    licenses {
+                        license {
+                            name 'License'
+                            url 'https://raw.githubusercontent.com/TechReborn/TechReborn-Addon/master/LICENSE.md'
+                            distribution 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id 'modmuss50'
+                            name 'modmuss50'
+                            roles { role 'developer' }
+                        }
+                        developer {
+                            id 'Gigabit101'
+                            name 'Gigabit101'
+                            roles { role 'Gigabit101' }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    //To update the wrapper change the version bellow then run: gradle wrapper
+    gradleVersion = '2.4'
+}
