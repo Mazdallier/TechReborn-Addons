@@ -42,7 +42,7 @@ minecraft {
 group = 'TechReborn-Addon'
 
 dependencies {
-    compile 'TechReborn:TechReborn:0.4.3.860:api'
+    compile 'TechReborn:TechReborn:0.4.3.861:api'
 }
 
 
