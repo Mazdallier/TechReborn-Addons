@@ -25,6 +25,10 @@ repositories {
         name = "Modmuss50"
         url = "http://maven.modmuss50.me/"
     }
+    maven {
+        name = "ic2"
+        url = "http://maven.ic2.player.to/"
+    }
 }
 
 def ENV = System.getenv()
@@ -43,6 +47,7 @@ group = 'TechReborn-Addon'
 
 dependencies {
 compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'net.industrial-craft:industrialcraft-2:2.2.767-experimental:dev'
 }
 
 
