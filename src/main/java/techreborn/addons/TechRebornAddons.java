@@ -3,11 +3,13 @@ package techreborn.addons;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import techreborn.addons.blocks.BlockFarm;
+import techreborn.addons.client.GuiHandler;
 import techreborn.addons.farm.FarmTree;
 import techreborn.addons.items.ItemFarmPatten;
 import techreborn.addons.parts.FarmInventoryCable;
@@ -21,6 +23,9 @@ public class TechRebornAddons {
     public static Block farm;
     public static Item farmPatten;
 
+    @Mod.Instance
+    public static TechRebornAddons instance;
+
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
         farm = new BlockFarm();
@@ -29,6 +34,8 @@ public class TechRebornAddons {
 
         farmPatten = new ItemFarmPatten();
         GameRegistry.registerItem(farmPatten, "farmPatten");
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     }
 
     @Mod.EventHandler
