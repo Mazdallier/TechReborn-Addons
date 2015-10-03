@@ -8,13 +8,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import techreborn.addons.blocks.BlockFarm;
 import techreborn.addons.client.GuiHandler;
 import techreborn.addons.farm.FarmTree;
 import techreborn.addons.items.ItemFarmPatten;
 import techreborn.addons.parts.FarmInventoryCable;
 import techreborn.addons.tiles.TileFarm;
-import techreborn.api.TechRebornItems;
+import techreborn.api.TechRebornAPI;
+import techreborn.api.TechRebornBlocks;
 import techreborn.partSystem.ModPartRegistry;
 
 @Mod(name = "TechReborn-Addons", modid = "techreborn-addons", version = "@MODVERSION@")
@@ -36,11 +38,22 @@ public class TechRebornAddons {
         GameRegistry.registerItem(farmPatten, "farmPatten");
 
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+
+        TechRebornAPI.addRollingMachinceRecipe(new ItemStack(farm),
+                "CCC", "CSC", "CCC",
+                'C', new ItemStack(TechRebornBlocks.getBlock("MachineCasing")),
+                'S', new ItemStack(Blocks.sapling)
+        );
+
+        TechRebornAPI.addRollingMachinceRecipe(new ItemStack(farmPatten),
+                "CSC", "CSC", "SSS",
+                'C', new ItemStack(TechRebornBlocks.getBlock("MachineCasing")),
+                'S', new ItemStack(Blocks.sapling)
+        );
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){
-        System.out.println(TechRebornItems.getItem("gems").getUnlocalizedName());
 
         FarmTree.harvestableLogs.add(Blocks.log);
         FarmTree.harvestableLogs.add(Blocks.log2);
