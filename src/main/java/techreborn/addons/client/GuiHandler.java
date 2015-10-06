@@ -11,7 +11,7 @@ public class GuiHandler implements IGuiHandler {
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if(ID == farmID){
+        if (ID == farmID) {
             return new ContainerFarm((TileFarm) world.getTileEntity(x, y, z), player);
         }
         return null;
@@ -19,7 +19,7 @@ public class GuiHandler implements IGuiHandler {
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if(ID == farmID){
+        if (ID == farmID) {
             return new GuiFarm(new ContainerFarm((TileFarm) world.getTileEntity(x, y, z), player));
         }
         return null;

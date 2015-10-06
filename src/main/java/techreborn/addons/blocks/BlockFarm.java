@@ -16,6 +16,7 @@ public class BlockFarm extends BlockMachineBase {
         setCreativeTab(TechRebornCreativeTab.instance);
         setBlockName("techreborn.farm");
         setHardness(2F);
+        setBlockTextureName("techreborn-addon:farm");
     }
 
     @Override
