@@ -78,7 +78,7 @@ minecraft {
 group = 'TechReborn-Addon'
 
 dependencies {
-	compile name: 'TechReborn', version: '0.4.3.864', classifier: "dev", ext: 'jar'
+	compile name: 'TechReborn', version: '0.5.5.942', classifier: "dev", ext: 'jar'
     compile 'net.industrial-craft:industrialcraft-2:2.2.767-experimental:dev'
     compile "codechicken:CodeChickenLib:1.7.10-1.1.3.136:dev"
     compile "codechicken:CodeChickenCore:1.7.10-1.0.6.+:dev"
