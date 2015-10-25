@@ -16,12 +16,14 @@ class StackPowerOverlayRender : IItemRenderer {
     }
 
     public fun renderPowerCount(stack: ItemStack?) {
-        var str = ""
-        var num: Int = 0
+        var str : String
+        var num: Int
         var item = stack!!.item
         if (item is IEnergyInterfaceItem) {
-            str = Integer.toString(percentage(item.getMaxPower(stack).toInt(), item.getEnergy(stack).toInt())) + "%"
             num = percentage(item.getMaxPower(stack).toInt(), item.getEnergy(stack).toInt())
+            str = num.toString() + "%"
+        } else {
+            return
         }
 
         GL11.glDisable(GL11.GL_LIGHTING)
