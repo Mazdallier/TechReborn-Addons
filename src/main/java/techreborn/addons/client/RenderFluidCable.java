@@ -5,13 +5,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 import techreborn.addons.parts.FluidCable;
-import techreborn.lib.Functions;
-import techreborn.lib.vecmath.Vecs3d;
-import techreborn.lib.vecmath.Vecs3dCube;
+import reborncore.common.misc.Functions;
+import reborncore.common.misc.vecmath.Vecs3d;
+import reborncore.common.misc.vecmath.Vecs3dCube;
 
 /**
  * Created by Mark on 05/10/2015.

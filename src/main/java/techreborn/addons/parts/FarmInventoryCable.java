@@ -10,9 +10,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import techreborn.addons.client.RenderFarmInventoryCable;
-import techreborn.lib.Functions;
-import techreborn.lib.vecmath.Vecs3d;
-import techreborn.lib.vecmath.Vecs3dCube;
+import reborncore.common.misc.Functions;
+import reborncore.common.misc.vecmath.Vecs3d;
+import reborncore.common.misc.vecmath.Vecs3dCube;
 import techreborn.partSystem.*;
 
 import java.util.ArrayList;

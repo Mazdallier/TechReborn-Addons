@@ -16,8 +16,8 @@ import net.minecraftforge.event.world.BlockEvent;
 import techreborn.addons.api.farm.IFarmLogicDevice;
 import techreborn.addons.tiles.TileFarm;
 import techreborn.config.ConfigTechReborn;
-import techreborn.lib.Location;
-import techreborn.util.ItemUtils;
+import reborncore.common.misc.Location;
+import reborncore.common.util.ItemUtils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,7 +8,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import techreborn.addons.api.farm.IFarmLogicContainer;
 import techreborn.addons.api.farm.IFarmLogicDevice;
 import techreborn.powerSystem.TilePowerAcceptor;
-import techreborn.util.Inventory;
+import reborncore.common.util.Inventory;
 
 public class TileFarm extends TilePowerAcceptor implements IInventory {
 

@@ -10,9 +10,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 import techreborn.addons.parts.SuperConductorCable;
-import techreborn.lib.Functions;
-import techreborn.lib.vecmath.Vecs3d;
-import techreborn.lib.vecmath.Vecs3dCube;
+import reborncore.common.misc.Functions;
+import reborncore.common.misc.vecmath.Vecs3d;
+import reborncore.common.misc.vecmath.Vecs3dCube;
 
 public class RenderSuperCable {
     public static void renderBox(Vecs3dCube cube, Block block, Tessellator tessellator, RenderBlocks renderblocks, IIcon texture, Double xD, Double yD, double zD, float thickness) {

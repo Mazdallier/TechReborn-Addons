@@ -3,9 +3,9 @@ package techreborn.addons.client;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import techreborn.addons.tiles.TileFarm;
-import techreborn.client.container.TechRebornContainer;
+import reborncore.common.container.RebornContainer;
 
-public class ContainerFarm extends TechRebornContainer {
+public class ContainerFarm extends RebornContainer {
 
     TileFarm farm;
     EntityPlayer player;
